@@ -1,0 +1,58 @@
+<div class="pure-g">
+  <div class="pure-u-1">
+    <div class="box">
+      <h1><i class="fa fa-cogs"></i> Ajuste de hubicaciones</h1>
+      <form class="pure-form">
+          <fieldset>
+              <label for="place">Lugar:</label>
+              <input ng-model="newPlace" id="place" type="text" placeholder="Nombre del lugar">
+              <input ng-model="capacity" type="number" min="1" value="10" placeholder="Capacidad">
+              <button ng-click="addPlace()" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
+          </fieldset>
+      </form>
+      <ul ng-model="locations">
+        <li ng-repeat="location in locations | filter:searchText">{{location.name}}
+          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editLocation(location._id)"><i class="fa fa-pencil"></i></a>
+          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteLocation(location._id, location)"><i class="fa fa-trash"></i></a>
+        </li>
+      </ul>
+    </div>
+    <div class="box">
+      <h1><i class="fa fa-cogs"></i> Ajuste de horario</h1>
+      <form class="pure-form">
+          <fieldset>
+              <select>
+                <option>Selectione hubicacion</option>
+              </select>
+          </fieldset>
+          <fieldset>
+            <input type="datetime" name="time" /> -
+            <input type="datetime-local" name="time" />
+            <button ng-click="" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
+          </fieldset>
+      </form>
+    </div>
+    <div class="box">
+      <h1><i class="fa fa-cogs"></i> Ajuste de precios</h1>
+      <form class="pure-form pure-form-aligned">
+          <fieldset>
+              <div class="pure-control-group">
+                  <label for="cost">Precio por clace $</label>
+                  <input id="cost" type="number" min="1" placeholder="Precio">
+              </div>
+              <div class="pure-control-group">
+                  <label for="perweek">Clases por semana</label>
+                  <input id="perweek" type="number" min="1" placeholder="N&uacute;mero de clases">
+              </div>
+              <div class="pure-control-group">
+                  <label for="permonth">Clases por mes</label>
+                  <input id="permonth" type="number" min="1" placeholder="N&uacute;mero de clases">
+              </div>
+              <div class="pure-controls">
+                  <button type="submit" class="pure-button pure-button-primary">Guardar</button>
+              </div>
+          </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

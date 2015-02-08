@@ -1,0 +1,86 @@
+.graphWrapper{
+	width: 100%;
+	border-radius: 4px;
+}
+.graphWeapper:after{
+	content: " ";
+	display: block; 
+	height: 0; 
+	clear: both;
+}
+
+.graphInner{
+	height: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	float: left;
+}
+.aTeam{
+	background-color: red;
+}
+.bTeam{
+	background-color: blue;
+}
+
+.tie{
+	background-color: purple;
+}
+
+/* Put your css in here */
+
+.chart {
+ height: 350px;
+}
+.x.axis .tick{
+	font-size: 13px;
+}
+
+.powerBar{
+	border-radius: 8px;
+	border-width: 1px;
+	border-style: solid;
+	height: 13px;
+	display: inline-block;
+	font-size: 12px;
+	padding: 1px 0;
+	font-weight: bold;
+	color: white;
+}
+.attack{
+	background-color: #900;
+	border-color: #200;
+}
+.defence{
+	background-color: #009;
+	border-color: #002;
+}
+.elo{
+	background-color: #9f7f11;
+	border-color: #970;
+}
+.haa{
+	background-color: #dd4444;
+}
+.had{
+	background-color: #4444dd;
+}
+.powerLine{
+	background-color: none;
+	border-right: none;
+	border-bottom: none;
+	border-top: none;
+	border-left: 2px solid yellow;
+	border-radius: 0;
+	height: 16px;
+}
+.wrap{
+	background-color: gray;
+	display: block;
+	height: 18px;
+	padding: 0;
+	background: linear-gradient(to right, red, purple, blue);
+	text-align: right;
+}

@@ -1,0 +1,27 @@
+{
+    "default": {
+        "port": 3000
+
+    },
+
+    "development": {
+    "db":{
+      "host": "localhost/",
+      "dbName": "gym-v-1",
+      "user": "",
+      "password":""
+    }
+    },
+
+    "test": {
+        "port": 3001
+    },
+
+    "staging": {
+
+    },
+
+    "production": {
+
+    }
+}

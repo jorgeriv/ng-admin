@@ -1,0 +1,23 @@
+<div class="pure-g">
+  <div class="pure-u-1">
+    <div class="box">
+      <h1><i class="fa fa-money"></i> Pagos</h1>
+    </div>
+    <div class="box">
+      <h2>Lista de usuarios</h2>
+      <form class="pure-form">
+        <fieldset>
+          <legend>Filtrar usuarios por nombre o numero de lista</legend>
+          <label for="buscar">Buscar</label>
+          <input ng-model="searchText" id="buscar" type="text" placeholder="Nombre o n&uacute;mero">
+        </fieldset>
+      </form>
+      <ul class="usrList" ng-model="users">
+        <li ng-repeat="user in users | filter:searchText">{{user.listNo}} -
+          <a title="Ver detalles" href="#/usuarios/{{user._id}}">{{user.name}}</a>
+          <a title="Pagar" href="#/pago/{{user._id}}" class="pure-button button-xsmall button-secondary" ><i class="fa fa-usd"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
