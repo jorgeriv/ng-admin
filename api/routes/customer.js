@@ -16,7 +16,7 @@ module.exports = {
   * @param {Object} res HTTP response object.
   */
   addCustomer: function(req, res){
-    console.log("Add customer");
+    console.log('Add customer');
     var customer = new Customer({
       name:  req.body.name,
       phone: req.body.phone,
@@ -31,8 +31,8 @@ module.exports = {
         return res.send(500, err);
       }
       console.log('Customer created');
-      return res.send(200, doc)
-    })
+      return res.send(200, doc);
+    });
 
   },
   getCustomer: function(req, res){
@@ -44,7 +44,7 @@ module.exports = {
         }
         console.log('Customer retrived');
         return res.send(200, doc);
-    })
+    });
   },
   updateCustomer: function(req, res){
     return Customer.findById(req.params.id,
@@ -70,10 +70,10 @@ module.exports = {
           doc.emName = req.body.emName;
         }
         if(req.body.emPhone){
-          doc.emPhone = req.body.emPhone
+          doc.emPhone = req.body.emPhone;
         }
         if(req.body.active){
-          doc.active = req.body.active
+          doc.active = req.body.active;
         }
         doc.save(function(err, doc){
           if(err){
@@ -82,7 +82,7 @@ module.exports = {
           }
           console.log('Customer updated');
           return res.send(200, doc);
-        })
+        });
       });
   },
   deleteCustomer: function(req, res){
