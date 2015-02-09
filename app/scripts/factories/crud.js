@@ -36,7 +36,7 @@ angular.module('gymApp').factory('crud', function($http, $q, conf){
       },
       delete: function(id){
         return $q(function(resolve, reject){
-          $http.delete(conf.host + 'customer/' + id)
+          $http.delete(conf.host + destination + '/' + id)
             .success(resolve)
             .error(reject);
         });
