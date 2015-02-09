@@ -3,7 +3,9 @@ body {
   background-color: #080707;
   color: #7f7f7f;
 }
-
+.hidden {
+  display:none;
+}
 .box{
   background-color: #191818;
   border: 1px solid #2f2e2e;
@@ -130,4 +132,43 @@ body {
 }
 .txt-right{
   text-align: right;;
+}
+
+/* Modal */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(250, 250, 250, .7);
+  z-index:9999;
+}
+.window{
+  max-width:800px;
+  max-height:600px;
+  overfolow-x:hidden;
+  overflow-y:auto;
+  display:block;
+  position:relative;
+  top:100px;
+  margin:0 auto;
+  background-color: #191818;
+  border: 1px solid #2f2e2e;
+  border-radius:4px;
+  z-index:10000;
+  box-shadow: 8px 7px 3px #222;
+}
+
+.window > .window-title{
+  font-weight:bold;
+  font-size:12px;
+  text-align:center;
+  background-color:#111;
+  padding: 2px 4px;
+}
+
+.window > .window-content{
+  font-size:12px;
+  padding:8px 16px;
 }

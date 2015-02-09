@@ -8,7 +8,7 @@
 * Controller of the gymApp
 */
 angular.module('gymApp')
-.controller('SettingsCtrl', function ($scope, $location, $routeParams, crud) {
+.controller('SettingsCtrl', function ($scope, $location, $routeParams, crud, ngDialog) {
 
   function init(){
     crud('place').read().then(function(data){
@@ -30,12 +30,31 @@ angular.module('gymApp')
     }).then(
       function(data){
         $scope.places.push(data);
+        $scope.placeName = undefined;
+        $scope.capacity = undefined;
       },
       function(){
         //TODO: handle error
       }
     );
   };
+
+  $scope.deleteLocation = function(id){
+    $scope.id = id;
+    ngDialog.open({
+        template: 'views/modals/delete.html',
+        controller: 'ModalCtrl',
+        scope: $scope
+    });
+  };
+
+  $scope.editLocation = function(){
+    ngDialog.open({
+        template: 'views/modals/edit.html',
+        controller: 'ModalCtrl'
+    });
+  };
+
 
   init();
 });

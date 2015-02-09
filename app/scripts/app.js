@@ -12,7 +12,7 @@ angular
   .module('gymApp', [
     'ngAnimate',
     'ngCookies',
-    //'ngResource',
+    'ngDialog',
     'ngRoute',
     'ngSanitize',
     'ngTouch'
