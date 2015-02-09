@@ -29,7 +29,7 @@ module.exports = {
       res.status(200).send(doc);
     });
   },
-  create: function(req, res){
+  add: function(req, res){
     var place = new Place(req.body);
     place.save(function(err, doc){
       if(err){
@@ -38,7 +38,7 @@ module.exports = {
       res.status(200).send(doc);
     });
   },
-  upate: function(req, res){
+  update: function(req, res){
     var id = req.params.id;
     Place.find({_id:id}, function(err, doc){
       if(err){

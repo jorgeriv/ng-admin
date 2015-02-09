@@ -8,11 +8,11 @@
 * CRUD functionality
 */
 angular.module('gymApp').factory('crud', function($http, $q, conf){
-  var factory = {
-    customer : {
+  return function(destination){
+    return {
       create : function(customer){
         return $q(function(resolve, reject){
-          $http.post(conf.host + 'customer', customer)
+          $http.post(conf.host + destination, customer)
             .success(resolve)
             .error(reject);
         });
@@ -20,16 +20,16 @@ angular.module('gymApp').factory('crud', function($http, $q, conf){
       read : function(id){
         if(id){
           return $q(function(resolve, reject){
-            $http.get(conf.host + 'customer/' + id).success(resolve).error(reject);
+            $http.get(conf.host +  destination + '/' + id).success(resolve).error(reject);
           });
         }
         return $q(function(resolve, reject){
-          $http.get(conf.host + 'customer/').success(resolve).error(reject);
+          $http.get(conf.host + destination + '/').success(resolve).error(reject);
         });
       },
       update: function(id, customerData){
         return $q(function(resolve, reject){
-          $http.put(conf.host + 'customer/'+id, customerData)
+          $http.put(conf.host + destination + '/' + id, customerData)
             .success(resolve)
             .error(reject);
           });
@@ -41,8 +41,6 @@ angular.module('gymApp').factory('crud', function($http, $q, conf){
             .error(reject);
         });
       }
-    }
+    };
   };
-
-  return factory;
 });

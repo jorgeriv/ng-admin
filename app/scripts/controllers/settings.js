@@ -8,37 +8,34 @@
 * Controller of the gymApp
 */
 angular.module('gymApp')
-.controller('SettingsCtrl', function ($scope, $http, $location, $routeParams, conf) {
-  $scope.customer = {};
-  init();
-  $scope.addCustomer = function(){
-    console.log('Adding customer', $scope.customer);
-    $http.post(conf.host + 'customer', $scope.customer).success(function(data){
-      $location.path('/usuarios/'+ data._id)
-    });
-  }
-
-  $scope.delete = function(id, item){
-    console.log('Deleting customer');
-    console.log(id);
-    $http.delete(conf.host + 'customer/' + id).success(function(){
-      console.log("Customer deleted", item);
-      var index = $scope.users.indexOf(item)
-      $scope.users.splice(index, 1);
-    });
-  }
+.controller('SettingsCtrl', function ($scope, $location, $routeParams, crud) {
 
   function init(){
-    $scope.id = $routeParams.id;
-    console.log("init", $scope.id);
-    if($scope.id){
-      $http.get(conf.host + 'customer/' + $scope.id).success(function(data){
-        $scope.customer = data;
-      });
-    } else {
-      $http.get(conf.host + 'customer').success(function(data){
-        $scope.users = data;
-      });
-    }
+    crud('place').read().then(function(data){
+      $scope.places = data;
+    }, function(){
+      //TODO: handle error
+    });
   }
+
+  $scope.addPlace = function(){
+    console.log('add place');
+    if(!$scope.placeName && !$scope.capacity){
+      console.log('Error: no place name or capacity set');
+      return;
+    }
+    crud('place').create({
+      name: $scope.placeName,
+      capacity: $scope.capacity
+    }).then(
+      function(data){
+        $scope.places.push(data);
+      },
+      function(){
+        //TODO: handle error
+      }
+    );
+  };
+
+  init();
 });

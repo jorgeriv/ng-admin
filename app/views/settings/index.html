@@ -5,13 +5,13 @@
       <form class="pure-form">
           <fieldset>
               <label for="place">Lugar:</label>
-              <input ng-model="newPlace" id="place" type="text" placeholder="Nombre del lugar">
+              <input ng-model="placeName" id="place" type="text" placeholder="Nombre del lugar">
               <input ng-model="capacity" type="number" min="1" value="10" placeholder="Capacidad">
               <button ng-click="addPlace()" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
           </fieldset>
       </form>
-      <ul ng-model="locations">
-        <li ng-repeat="location in locations | filter:searchText">{{location.name}}
+      <ul>
+        <li ng-repeat="location in places | filter:searchText">{{location.name}} ({{location.capacity}})
           <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editLocation(location._id)"><i class="fa fa-pencil"></i></a>
           <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteLocation(location._id, location)"><i class="fa fa-trash"></i></a>
         </li>
@@ -23,6 +23,7 @@
           <fieldset>
               <select>
                 <option>Selectione hubicacion</option>
+                <option ng-repeat="location in places" value="{{location._id}}">{{location.name}}</option>
               </select>
           </fieldset>
           <fieldset>
@@ -37,7 +38,7 @@
       <form class="pure-form pure-form-aligned">
           <fieldset>
               <div class="pure-control-group">
-                  <label for="cost">Precio por clace $</label>
+                  <label for="cost">Precio por clase $</label>
                   <input id="cost" type="number" min="1" placeholder="Precio">
               </div>
               <div class="pure-control-group">

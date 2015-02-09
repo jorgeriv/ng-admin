@@ -14,7 +14,7 @@ angular.module('gymApp')
   function init(){
     $scope.id = $routeParams.id;
     console.log('init', $scope.id);
-    crud.customer.read($scope.id)
+    crud('customer').read($scope.id)
       .then(function(data){
         if($scope.id){
           $scope.customer = data;
@@ -29,7 +29,7 @@ angular.module('gymApp')
 
   $scope.addCustomer = function(){
     console.log('Adding customer', $scope.customer);
-    crud.customer.create($scope.customer)
+    crud('customer').create($scope.customer)
       .then(function(data){
         $location.path('/usuarios/'+ data._id);
       },
@@ -40,7 +40,7 @@ angular.module('gymApp')
 
   $scope.delete = function(id, item){
     console.log('Deleting customer ', id);
-    crud.customer.delete(id).then(function(){
+    crud('customer').delete(id).then(function(){
       console.log('Customer deleted', item);
       var index = $scope.users.indexOf(item);
       $scope.users.splice(index, 1);
@@ -51,7 +51,7 @@ angular.module('gymApp')
 
   $scope.updateCustomer = function(){
     console.log('Updating customer', $scope.customer);
-    crud.customer.update($scope.customer._id, $scope.customer).then(function(data){
+    crud('customer').update($scope.customer._id, $scope.customer).then(function(data){
       $location.path('/usuarios/'+ data._id);
     }, function(){
       //TODO: handle error
