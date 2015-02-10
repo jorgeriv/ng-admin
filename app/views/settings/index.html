@@ -12,8 +12,8 @@
       </form>
       <ul>
         <li ng-repeat="location in places | filter:searchText">{{location.name}} ({{location.capacity}})
-          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editLocation(location._id)"><i class="fa fa-pencil"></i></a>
-          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteLocation(location._id, location)"><i class="fa fa-trash"></i></a>
+          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editLocation(location)"><i class="fa fa-pencil"></i></a>
+          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteLocation(location)"><i class="fa fa-trash"></i></a>
         </li>
       </ul>
     </div>
