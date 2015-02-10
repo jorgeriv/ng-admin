@@ -1,0 +1,13 @@
+<div class="ngdialog-message">
+  <h2>Editar ubicacion</h2>
+  <form class="pure-form ng-pristine ng-valid ng-valid-min">
+    <fieldset>
+      <input ng-model="location.name" id="place" placeholder="Nombre del lugar" type="text">
+      <input ng-model="location.capacity" min="1" value="10" placeholder="Capacidad" type="number">
+    </fieldset>
+  </form>
+</div>
+<div class="ngdialog-buttons mt">
+  <button type="button" class="ngdialog-button button-success" ng-click="update()">Guardar</button>
+  <button type="button" class="ngdialog-button pure-button-primary" ng-click="cancel()">Cancelar</button>
+</div>

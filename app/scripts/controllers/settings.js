@@ -40,6 +40,7 @@ angular.module('gymApp')
   };
 
   $scope.deleteLocation = function(location){
+    $scope.name = location.name;
     $scope.location = location;
     ngDialog.open({
         template: 'views/modals/delete.html',
@@ -49,7 +50,12 @@ angular.module('gymApp')
   };
 
   $scope.editLocation = function(location){
-    $scope.location = location;
+    $scope.location = {
+      _id: location._id,
+      name: location.name,
+      capacity: location.capacity
+    };
+    $scope.oldLocation = location;
     ngDialog.open({
         template: 'views/modals/edit.html',
         controller: 'ModalCtrl',
@@ -57,9 +63,14 @@ angular.module('gymApp')
     });
   };
 
-  $rootScope.$on('delete-location', function(location){
+  $rootScope.$on('delete-location', function(e, location){
     var index = $scope.places.indexOf(location);
     $scope.places.splice(index, 1);
+  });
+
+  $rootScope.$on('update-location', function(e, old, newer){
+    var index = $scope.places.indexOf(old);
+    $scope.places.splice(index, 1, newer);
   });
 
   init();

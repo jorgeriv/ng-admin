@@ -9,6 +9,7 @@
 */
 angular.module('gymApp')
 .controller('ModalCtrl', function ($scope, $rootScope, crud) {
+
   $scope.cancel = function(){
     $scope.closeThisDialog();
   };
@@ -18,5 +19,13 @@ angular.module('gymApp')
       $rootScope.$emit('delete-location', location);
     });
     $scope.closeThisDialog();
+  };
+
+  $scope.update = function(){
+    crud('place').update($scope.location._id, $scope.location).then(function(newLocation){
+      console.log('From modal.js', newLocation);
+      $rootScope.$emit('update-location', $scope.oldLocation, newLocation);
+      $scope.closeThisDialog();
+    });
   };
 });
