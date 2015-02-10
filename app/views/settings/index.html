@@ -18,20 +18,32 @@
       </ul>
     </div>
     <div class="box">
-      <h1><i class="fa fa-cogs"></i> Ajuste de horario</h1>
+      <h1><i class="fa fa-cogs"></i> Ajuste de horarios</h1>
       <form class="pure-form">
           <fieldset>
-              <select>
-                <option>Selectione hubicacion</option>
-                <option ng-repeat="location in places" value="{{location._id}}">{{location.name}}</option>
-              </select>
-          </fieldset>
-          <fieldset>
-            <input type="datetime" name="time" /> -
-            <input type="datetime-local" name="time" />
+            <select>
+              <option>Selectione hubicacion</option>
+              <option ng-repeat="location in places" value="{{location._id}}">{{location.name}}</option>
+            </select>
+            <select name="" id="">
+              <option value="1">Lunes</option>
+              <option value="2">Martes</option>
+              <option value="3">Miercoles</option>
+              <option value="4">Jueves</option>
+              <option value="5">Viernes</option>
+              <option value="6">Sabado</option>
+              <option value="7">Domingo</option>
+            </select>
+            <label for="timeFrom">De:</label>
+            <input type="time" id="timeFrom" name="input" ng-model="value"
+   placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
+            <label for="timeTo">A:</label>
+            <input type="time" id="timeTo" name="input" ng-model="value"
+   placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
             <button ng-click="" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
-          </fieldset>
+        </fieldset>
       </form>
+
     </div>
     <div class="box">
       <h1><i class="fa fa-cogs"></i> Ajuste de precios</h1>
