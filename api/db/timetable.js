@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var ObjectId = Schema.Types.ObjectId;
 
 var Timetable = new Schema({
-  place: {trype:ObjectId, ref: 'Place'},
+  place: {type:ObjectId, ref: 'Place'},
   day: Number,
   timeFrom: String,
   timeTo: String,
