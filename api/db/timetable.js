@@ -5,8 +5,8 @@ var ObjectId = Schema.Types.ObjectId;
 var Timetable = new Schema({
   place: {type:ObjectId, ref: 'Place'},
   day: Number,
-  timeFrom: String,
-  timeTo: String,
+  from: String,
+  to: String,
   customerId: [{type:ObjectId}]
 });
 

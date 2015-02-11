@@ -13,6 +13,7 @@ angular.module('gymApp')
   function init(){
     crud('place').read().then(function(data){
       $scope.places = data;
+      $scope.times = [];
     }, function(){
       //TODO: handle error
     });
@@ -62,6 +63,25 @@ angular.module('gymApp')
         scope: $scope
     });
   };
+
+  $scope.addTime = function(){
+    console.log('add time');
+    if($scope.time && $scope.time.place){
+      console.log('pre-time->', $scope.time);
+      crud('timetable').create($scope.time).then(function(doc){
+        console.log('time ->', doc);
+        $scope.times.push(doc);
+      });
+    }
+  };
+
+  $scope.deleteTime = function(time){
+
+  };
+
+  $scope.editTime = function(time){
+
+  }
 
   $rootScope.$on('delete-location', function(e, location){
     var index = $scope.places.indexOf(location);
