@@ -11,10 +11,14 @@ var Schema = require('../db')('timetable');
 
 module.exports = {
   get: function(req, res){
-    var id = req.params.id;
-    Schema.findById(id, function(err, doc){
+    var params = {
+      place: req.body.place,
+      day: req.body.day
+    };
+    Schema.find(params, function(err, doc){
       if(err){
-        return res.status(404, err);
+        console.log('Error while getting timetable: ', err);
+        return res.status(500).send(err);
       }
       res.status(200).send(doc);
     });
