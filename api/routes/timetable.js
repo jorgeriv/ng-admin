@@ -12,8 +12,8 @@ var Schema = require('../db')('timetable');
 module.exports = {
   get: function(req, res){
     var params = {
-      place: req.body.place,
-      day: req.body.day
+      place: req.params.place,
+      day: req.params.day
     };
     Schema.find(params, function(err, doc){
       if(err){

@@ -64,6 +64,19 @@ angular.module('gymApp')
     });
   };
 
+  $scope.loadTimes = function(){
+    console.log('loadTimes()', $scope.time);
+    if(!$scope.time || !$scope.time.place || !$scope.time.day){
+      return;
+    }
+    crud('timetable').read(null, $scope.time).then(function(doc){
+      $scope.times = [];
+      doc.forEach(function(time){
+        $scope.times.push(time);
+      });
+    });
+  };
+
   $scope.addTime = function(){
     console.log('add time');
     if($scope.time && $scope.time.place){

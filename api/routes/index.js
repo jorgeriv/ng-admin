@@ -20,9 +20,9 @@ module.exports = function(app){
   app.put('/place/:id', place.update);
   app.delete('/place/:id', place.delete);
 
-  // Place
+  // timetable
   app.get('/timetable', timetable.getAll);
-  app.get('/timetable/:id', timetable.get);
+  app.get('/timetable/place/:place/day/:day', timetable.get);
   app.post('/timetable', timetable.add);
   app.put('/timetable/:id', timetable.update);
   app.delete('/timetable/:id', timetable.delete);
