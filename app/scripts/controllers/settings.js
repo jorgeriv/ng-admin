@@ -42,7 +42,8 @@ angular.module('gymApp')
 
   $scope.deleteLocation = function(location){
     $scope.name = location.name;
-    $scope.location = location;
+    $scope.collection = 'places';
+    $scope.item = location;
     ngDialog.open({
         template: 'views/modals/delete.html',
         controller: 'ModalCtrl',
@@ -88,17 +89,24 @@ angular.module('gymApp')
     }
   };
 
-  $scope.deleteTime = function(time){
-
+  $scope.deleteTime = function(schedule){
+    $scope.name = schedule.from + ' ' + schedule.to;
+    $scope.collection = 'times';
+    $scope.item = schedule;
+    ngDialog.open({
+        template: 'views/modals/delete.html',
+        controller: 'ModalCtrl',
+        scope: $scope
+    });
   };
 
   $scope.editTime = function(time){
 
   }
 
-  $rootScope.$on('delete-location', function(e, location){
-    var index = $scope.places.indexOf(location);
-    $scope.places.splice(index, 1);
+  $rootScope.$on('delete-item', function(e, item, collection){
+    var index = $scope[collection].indexOf(item);
+    $scope[collection].splice(index, 1);
   });
 
   $rootScope.$on('update-location', function(e, old, newer){

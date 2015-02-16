@@ -42,9 +42,9 @@
         </fieldset>
       </form>
       <ul>
-        <li ng-repeat="time in times">from: <em>{{time.from}}</em> to: <em>{{time.to}}</em>
-          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editTime(location)"><i class="fa fa-pencil"></i></a>
-          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteTime(location)"><i class="fa fa-trash"></i></a>
+        <li ng-repeat="schedule in times">from: <em>{{schedule.from}}</em> to: <em>{{schedule.to}}</em>
+          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editTime(schedule)"><i class="fa fa-pencil"></i></a>
+          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteTime(schedule)"><i class="fa fa-trash"></i></a>
         </li>
       </ul>
     </div>
