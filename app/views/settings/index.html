@@ -18,42 +18,113 @@
       </ul>
     </div>
     <div class="box">
-      <h1><i class="fa fa-cogs"></i> Ajuste de horario</h1>
+      <h1><i class="fa fa-cogs"></i> Ajuste de horarios</h1>
       <form class="pure-form">
           <fieldset>
-              <select>
-                <option>Selectione hubicacion</option>
-                <option ng-repeat="location in places" value="{{location._id}}">{{location.name}}</option>
-              </select>
-          </fieldset>
-          <fieldset>
-            <input type="datetime" name="time" /> -
-            <input type="datetime-local" name="time" />
-            <button ng-click="" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
-          </fieldset>
+            <select ng-model="time.place" ng-change="loadTimes()">
+              <option ng-selected="selected">Selectione hubicacion</option>
+              <option ng-repeat="location in places" value="{{location._id}}">{{location.name}}</option>
+            </select>
+            <select ng-model="time.day" ng-change="loadTimes()" name="" id="day">
+              <option value="1" ng-selected="selected" >Lunes</option>
+              <option value="2">Martes</option>
+              <option value="3">Miercoles</option>
+              <option value="4">Jueves</option>
+              <option value="5">Viernes</option>
+              <option value="6">Sabado</option>
+              <option value="7">Domingo</option>
+            </select>
+            <label for="timeFrom">De:</label>
+            <input ng-model="time.from" ng-required="true" type="time" id="timeFrom" placeholder="hh:mm:ss" />
+            <label for="timeTo">A:</label>
+            <input ng-model="time.to" ng-required="true" type="time" id="timeTo" placeholder="hh:mm:ss" />
+            <button ng-click="addTime()" class="pure-button pure-button-primary">Agregar <i class="fa fa-plus"></i></button>
+        </fieldset>
       </form>
+      <ul>
+        <li ng-repeat="schedule in times">from: <em>{{schedule.from}}</em> to: <em>{{schedule.to}}</em>
+          <a title="Editar" href="javascript:void(0)" class="pure-button button-xsmall button-secondary" ng-click="editTime(schedule)"><i class="fa fa-pencil"></i></a>
+          <a title="Eliminar" href="javascript:void(0)" class="pure-button button-xsmall button-error" ng-click="deleteTime(schedule)"><i class="fa fa-trash"></i></a>
+        </li>
+      </ul>
     </div>
     <div class="box">
       <h1><i class="fa fa-cogs"></i> Ajuste de precios</h1>
-      <form class="pure-form pure-form-aligned">
-          <fieldset>
-              <div class="pure-control-group">
-                  <label for="cost">Precio por clase $</label>
-                  <input id="cost" type="number" min="1" placeholder="Precio">
-              </div>
-              <div class="pure-control-group">
-                  <label for="perweek">Clases por semana</label>
-                  <input id="perweek" type="number" min="1" placeholder="N&uacute;mero de clases">
-              </div>
-              <div class="pure-control-group">
-                  <label for="permonth">Clases por mes</label>
-                  <input id="permonth" type="number" min="1" placeholder="N&uacute;mero de clases">
-              </div>
-              <div class="pure-controls">
-                  <button type="submit" class="pure-button pure-button-primary">Guardar</button>
-              </div>
-          </fieldset>
-      </form>
+      <form action="" class="pure-form"><label for="inscriptionCost">inscripci&oacute;n: $</label><input type="number"," id="inscriptionCost" min="0.0"," step="1" placeholder="$00.00"></form>
+      <table class="pure-table">
+          <thead>
+              <tr>
+                  <th>Mensualidades</th>
+                  <th>Costo</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr class="pure-table-odd">
+                  <td>1 clase por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+              <tr>
+                  <td>2 clases por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+              <tr class="pure-table-odd">
+                  <td>3 clases por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+              <tr>
+                  <td>4 clases por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+              <tr class="pure-table-odd">
+                  <td>5 clases por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+              <tr>
+                  <td>6 clases por semana durante un mes</td>
+                  <td>$00.00</td>
+              </tr>
+
+          </tbody>
+      </table>
+      <table class="pure-table pure-table-bordered">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Make</th>
+                  <th>Model</th>
+                  <th>Year</th>
+              </tr>
+          </thead>
+
+          <tbody>
+              <tr>
+                  <td>1</td>
+                  <td>Honda</td>
+                  <td>Accord</td>
+                  <td>2009</td>
+              </tr>
+
+              <tr>
+                  <td>2</td>
+                  <td>Toyota</td>
+                  <td>Camry</td>
+                  <td>2012</td>
+              </tr>
+
+              <tr>
+                  <td>3</td>
+                  <td>Hyundai</td>
+                  <td>Elantra</td>
+                  <td>2010</td>
+              </tr>
+          </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -17,16 +17,27 @@ angular.module('gymApp').factory('crud', function($http, $q, conf){
             .error(reject);
         });
       },
-      read : function(id){
+      read : function(id, data){
         if(id){
           return $q(function(resolve, reject){
             $http.get(conf.host +  destination + '/' + id).success(resolve).error(reject);
+          });
+        }
+        if(data && data.skip && data.limit){
+          return $q(function(resolve, reject){
+            $http.get(conf.host + destination + '/skip/' + data.skip + '/limit/' + data.limit).success(resolve).error(reject);
+          });
+        }
+        if(data && data.place && data.day){
+          return $q(function(resolve, reject){
+            $http.get(conf.host + destination + '/place/' + data.place + '/day/' + data.day).success(resolve).error(reject);
           });
         }
         return $q(function(resolve, reject){
           $http.get(conf.host + destination + '/').success(resolve).error(reject);
         });
       },
+
       update: function(id, customerData){
         return $q(function(resolve, reject){
           $http.put(conf.host + destination + '/' + id, customerData)
