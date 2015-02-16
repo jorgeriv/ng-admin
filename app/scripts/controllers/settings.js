@@ -44,6 +44,7 @@ angular.module('gymApp')
     $scope.name = location.name;
     $scope.collection = 'places';
     $scope.item = location;
+    $scope.destination = 'place';
     ngDialog.open({
         template: 'views/modals/delete.html',
         controller: 'ModalCtrl',
@@ -93,6 +94,7 @@ angular.module('gymApp')
     $scope.name = schedule.from + ' ' + schedule.to;
     $scope.collection = 'times';
     $scope.item = schedule;
+    $scope.destination = 'timetable';
     ngDialog.open({
         template: 'views/modals/delete.html',
         controller: 'ModalCtrl',

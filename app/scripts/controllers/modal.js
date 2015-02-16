@@ -14,7 +14,7 @@ angular.module('gymApp')
     $scope.closeThisDialog();
   };
   $scope.delete = function(){
-    crud('place').delete($scope.item._id).then(function(){
+    crud($scope.destination).delete($scope.item._id).then(function(){
       $rootScope.$emit('delete-item', $scope.item, $scope.collection);
     });
     $scope.closeThisDialog();

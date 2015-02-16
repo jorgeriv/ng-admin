@@ -64,11 +64,13 @@ module.exports = {
     });
   },
   delete: function(req, res){
+    console.log('del');
     var id = req.params.id;
     Schema.findByIdAndRemove(id, function(err, doc){
       if(err){
         return res.status(404).send(err);
       }
+      console.log('Item deleted ', doc._id);
       res.status(200).send(doc);
     });
   }
