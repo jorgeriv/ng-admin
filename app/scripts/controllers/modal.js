@@ -13,6 +13,7 @@ angular.module('gymApp')
   $scope.cancel = function(){
     $scope.closeThisDialog();
   };
+
   $scope.delete = function(){
     crud($scope.destination).delete($scope.item._id).then(function(){
       $rootScope.$emit('delete-item', $scope.item, $scope.collection);
