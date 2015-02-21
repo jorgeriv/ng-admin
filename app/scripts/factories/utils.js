@@ -11,13 +11,13 @@ angular.module('gymApp').factory('utils', function(){
   return {
     time: {
       dateToTimeString: function(date){
-        date = date instanceof String ? Date.parse(date) : date;
+        date = typeof date === 'string' ? new Date(Date.parse(date)) : date;
         if(!(date instanceof Date)){
           var e = new Error('Date parameter is required');
           console.log(e);
-          throw(e);
+          //throw(e);
         }
-        return date.getHour() + ':' + date.getMinutes() + ':' + date.getSeconds();
+        return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
       }
     }
   };
