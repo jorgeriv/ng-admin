@@ -8,7 +8,7 @@
 * Controller of the gymApp
 */
 angular.module('gymApp')
-.controller('SettingsCtrl', function ($scope, $location, $routeParams, $rootScope, crud, ngDialog) {
+.controller('SettingsCtrl', function ($scope, $location, $routeParams, $rootScope, crud, ngDialog, utils) {
 
   function init(){
     crud('place').read().then(function(data){
@@ -74,6 +74,9 @@ angular.module('gymApp')
     crud('timetable').read(null, $scope.time).then(function(doc){
       $scope.times = [];
       doc.forEach(function(time){
+        console.log(time);
+        time.from = utils.time.dateToTimeString(time.from);
+        time.to = utils.time.dateToTimeString(time.to);
         $scope.times.push(time);
       });
     });
@@ -84,6 +87,8 @@ angular.module('gymApp')
     if($scope.time && $scope.time.place){
       console.log('pre-time->', $scope.time);
       crud('timetable').create($scope.time).then(function(doc){
+        doc.from = utils.time.dateToTimeString(doc.from);
+        doc.to = utils.time.dateToTimeString(doc.to);
         console.log('time ->', doc);
         $scope.times.push(doc);
       });
