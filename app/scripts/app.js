@@ -15,7 +15,8 @@ angular
     'ngDialog',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'xeditable'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -66,4 +67,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  })
+  .run(function(editableOptions){
+    editableOptions.theme = 'default';
   });
