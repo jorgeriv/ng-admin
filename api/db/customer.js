@@ -1,7 +1,7 @@
 'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = Schema.types.ObjectId;
+var ObjectId = Schema.Types.ObjectId;
 
 var Customer = new Schema({
   name:  {type: String, required: true},
@@ -13,9 +13,9 @@ var Customer = new Schema({
   date: { type: Date, default: Date.now },
   active: {type:Boolean, default:true},
   listNo: {type:Number, index:true},
-  payments: [{type: ObjectId, reference:'Payment'}],
+  payments: [{type: ObjectId, ref:'Payment'}],
   attendance:[{
-    time: { type:ObjectId, reference: 'Timetable'},
+    time: { type:ObjectId, ref: 'Timetable'},
     date: { type: Date, default: Date.now },
     reposition: Boolean
   }],
