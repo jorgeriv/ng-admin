@@ -1,5 +1,7 @@
+'use strict';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = Schema.types.ObjectId;
 
 var Customer = new Schema({
   name:  {type: String, required: true},
@@ -10,7 +12,14 @@ var Customer = new Schema({
   emPhone: Number,
   date: { type: Date, default: Date.now },
   active: {type:Boolean, default:true},
-  listNo: {type:Number, index:true}
+  listNo: {type:Number, index:true},
+  payments: [{type: ObjectId, reference:'Payment'}],
+  attendance:[{
+    time: { type:ObjectId, reference: 'Timetable'},
+    date: { type: Date, default: Date.now }
+  }],
+  schedule:[{type:ObjectId, reference:'Timetable'}],
+  repositions: [{schedule: {type:ObjectId, reference:'Timetable'}, date: {type: Date, default: Date.now}}]
 });
 
 Customer.methods.insertInc = function(cb) {
@@ -19,13 +28,13 @@ Customer.methods.insertInc = function(cb) {
     if(err){
       return console.log(err);
     }
-    var seq = doc.length == 0 ?  1 : doc[0].listNo + 1;
+    var seq = doc.length === 0 ?  1 : doc[0].listNo + 1;
 
     that.listNo = seq;
 
     that.save(cb);
   });
-}
+};
 // models
 mongoose.model('Customer', Customer);
 
