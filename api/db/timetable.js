@@ -7,7 +7,7 @@ var Timetable = new Schema({
   day: Number,
   from: String,
   to: String,
-  customerId: [{type:ObjectId}]
+  customerId: [{type:ObjectId, reference: 'Customer'}]
 });
 
 // models

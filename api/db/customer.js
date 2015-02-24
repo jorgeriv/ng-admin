@@ -16,10 +16,10 @@ var Customer = new Schema({
   payments: [{type: ObjectId, reference:'Payment'}],
   attendance:[{
     time: { type:ObjectId, reference: 'Timetable'},
-    date: { type: Date, default: Date.now }
+    date: { type: Date, default: Date.now },
+    reposition: Boolean
   }],
-  schedule:[{type:ObjectId, reference:'Timetable'}],
-  repositions: [{schedule: {type:ObjectId, reference:'Timetable'}, date: {type: Date, default: Date.now}}]
+  //schedule:[{type:ObjectId, reference:'Timetable'}], // reference in Timetable
 });
 
 Customer.methods.insertInc = function(cb) {

@@ -31,8 +31,8 @@
 
           <div class="pure-control-group">
             <label for="place">Lugar</label>
-            <select>
-              <option>Seleccione un lugar</option>
+            <select ng-model="location" ng-options="place.name for place in places">
+              <option value="">Seleccione un lugar</option>
             </select>
           </div>
 

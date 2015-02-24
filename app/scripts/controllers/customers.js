@@ -25,6 +25,16 @@ angular.module('gymApp')
       function(err){
         console.log(err);
       });
+    crud('timetable').read().then(
+      function(data){
+        $scope.timetable = data;
+      }
+    );
+    crud('place').read().then(
+      function(places){
+        $scope.places = places;
+      }
+    );
   }
 
   $scope.addCustomer = function(){
