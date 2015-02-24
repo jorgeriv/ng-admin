@@ -19,6 +19,7 @@ var Customer = new Schema({
     date: { type: Date, default: Date.now },
     reposition: Boolean
   }],
+  photo:  { data: Buffer, contentType: String }
   //schedule:[{type:ObjectId, reference:'Timetable'}], // reference in Timetable
 });
 

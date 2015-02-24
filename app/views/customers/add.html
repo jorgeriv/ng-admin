@@ -37,9 +37,24 @@
           </div>
 
           <div class="pure-control-group">
-            <label for="time">Horario</label>
-            <select>
-              <option>Seleccione un horario</option>
+            <label for="monthly">Pago mensual</label>
+            <input name="pType" id="monthly" type="radio" checked>
+          </div>
+
+          <div class="pure-control-group">
+            <label for="perClass">Pago por clase</label>
+            <input name="pType" id="perClass" type="radio">
+          </div>
+
+          <div class="pure-control-group">
+            <label for="classNo">Clases por semana</label>
+            <select id="classNo">
+              <option value="1" id="opt1">1 dia</option>
+              <option value="2" id="opt2">2 dias</option>
+              <option value="3" id="opt3">3 dias</option>
+              <option value="4" id="opt4">4 dias</option>
+              <option value="5" id="opt5">5 dias</option>
+              <option value="6" id="opt6">6 dias</option>
             </select>
           </div>
           <div class="pure-controls">
