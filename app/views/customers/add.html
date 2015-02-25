@@ -48,17 +48,17 @@
 
           <div class="pure-control-group">
             <label for="classNo">Clases por semana</label>
-            <select id="classNo">
-              <option value="1" id="opt1">1 dia</option>
-              <option value="2" id="opt2">2 dias</option>
-              <option value="3" id="opt3">3 dias</option>
-              <option value="4" id="opt4">4 dias</option>
-              <option value="5" id="opt5">5 dias</option>
-              <option value="6" id="opt6">6 dias</option>
+            <select ng-model="classes" id="classNo" ng-options="option.name for option in classNo">
+              <option value="" >N&uacute;mero de dias</option>
             </select>
           </div>
+          <div class="pure-control-group">
+            <label for="classNo">Pago de inscripcion</label>
+            <input id="inscription" type="Number" placeholder="$00.00" step="1" min="0">
+          </div>
+          <schedule></schedule>
           <div class="pure-controls">
-            <button ng-click="addCustomer()" class="pure-button pure-button-primary">Agregar</button>
+            <button ng-model="button" ng-disabled="ready" ng-click="addCustomer()" class="pure-button pure-button-primary">Agregar</button>
           </div>
         </fieldset>
       </form>

@@ -35,6 +35,17 @@ angular.module('gymApp')
         $scope.places = places;
       }
     );
+    $scope.classNo = [
+      {name: '1 dia', value: 1},
+      {name: '2 dias', value: 2},
+      {name: '3 dias', value: 3},
+      {name: '4 dias', value: 4},
+      {name: '5 dias', value: 5},
+      {name: '6 dias', value: 6}
+    ];
+    // To activate save button
+    //$scope.required = [];
+    //$scope.$watchCollection();
   }
 
   $scope.addCustomer = function(){
