@@ -4,6 +4,12 @@
       <h1><i class="fa fa-user"></i> Agregar nuevo usuario</h1>
       <form class="pure-form pure-form-aligned">
         <fieldset>
+
+          <div class="pure-control-group">
+            <label for="photo">Foto de perfil</label>
+            <input ng-model="customer.photo" id="photo" type="file" >
+          </div>
+
           <div class="pure-control-group">
             <label for="name">Nombre</label>
             <input ng-model="customer.name" id="name" type="text" placeholder="Nombre">
@@ -56,7 +62,62 @@
             <label for="classNo">Pago de inscripcion</label>
             <input id="inscription" type="Number" placeholder="$00.00" step="1" min="0">
           </div>
-          <schedule></schedule>
+          <div class="pure-control-group">
+            <label for="mon">Lunes</label>
+            <input id="mon" type="checkbox" >
+            <label for="monSch">Horario:</label>
+            <select name="monSch" id="monSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="tue">Martes</label>
+            <input id="tue" type="checkbox">
+            <label for="theSch">Horario:</label>
+            <select name="theSch" id="theSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="wen">Miercoles</label>
+            <input id="wen" type="checkbox" >
+            <label for="wenSch">Horario:</label>
+            <select name="wenSch" id="wenSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="thu">Jueves</label>
+            <input id="thu" type="checkbox">
+            <label for="thuSch">Horario:</label>
+            <select name="thuSch" id="thuSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="fri">Viernes</label>
+            <input id="fri" type="checkbox">
+            <label for="friSch">Horario:</label>
+            <select name="friSch" id="friSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="sat">Sabado</label>
+            <input id="sat" type="checkbox">
+            <label for="satSch">Horario:</label>
+            <select name="satSch" id="satSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
+          <div class="pure-control-group">
+            <label for="sun">Domingo</label>
+            <input id="sun" type="checkbox">
+            <label for="sunSch">Horario:</label>
+            <select name="sunSch" id="sunSch">
+              <option value="">Seleccione horario</option>
+            </select>
+          </div>
           <div class="pure-controls">
             <button ng-model="button" ng-disabled="ready" ng-click="addCustomer()" class="pure-button pure-button-primary">Agregar</button>
           </div>
