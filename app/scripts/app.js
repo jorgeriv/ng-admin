@@ -10,12 +10,10 @@
  */
 angular
   .module('gymApp', [
-    'ngAnimate',
     'ngCookies',
     'ngDialog',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
     'xeditable'
   ])
   .config(function ($routeProvider) {
