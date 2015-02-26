@@ -2,7 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 //var ObjectId = Schema.Types.ObjectId;
 
-var PriceTable = new Schema({
+var PriceTable = new Schema([
+  {}
+]
+  /*
+  {
   inscription: {type:Number, default:0},
   monthlyPayment:{
     oneDayaWeek: {type:Number, default:0},
@@ -19,7 +23,9 @@ var PriceTable = new Schema({
     fiveClasses: {type:Number, default:0},
     sixClasses: {type:Number, default:0}
   }
-});
+}
+
+*/);
 // models
 mongoose.model('PriceTable', PriceTable);
 
