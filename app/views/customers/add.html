@@ -64,9 +64,9 @@
           </div>
           <div class="pure-control-group">
             <label for="mon">Lunes</label>
-            <input id="mon" type="checkbox" >
+            <input ng-model="days.monday" id="mon" type="checkbox" >
             <label for="monSch">Horario:</label>
-            <select name="monSch" id="monSch">
+            <select ng-model="" ng-disabled="days.monday" name="monSch" id="monSch">
               <option value="">Seleccione horario</option>
             </select>
           </div>

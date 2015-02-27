@@ -17,7 +17,7 @@ module.exports = {
     };
     Schema.findOne(params, function(err, doc){
       if(err){
-        console.log('Error while getting timetable: ', err);
+        console.log('Error while getting pricetable: ', err);
         return res.status(500).send(err);
       }
       res.status(200).send(doc);
@@ -25,7 +25,7 @@ module.exports = {
   },
   getAll: function(req, res){
     var skip = req.params.skip || 0;
-    var limit = req.params.limit || 20;
+    var limit = req.params.limit || 36;
     Schema.find({}).limit(limit).skip(skip).exec(function(err, doc){
       if(err){
         return res.status(404).send(err);

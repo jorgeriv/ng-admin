@@ -13,7 +13,6 @@ angular.module('gymApp')
 
   function init(){
     $scope.id = $routeParams.id;
-    console.log('init', $scope.id);
     crud('customer').read($scope.id)
       .then(function(data){
         if($scope.id){
