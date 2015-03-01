@@ -14,6 +14,16 @@ angular.module('gymApp')
     crud('place').read().then(function(data){
       $scope.places = data;
       $scope.times = [];
+      $scope.cost = {
+        monthly: [],
+        weekly:[[]],
+        save: function(data){
+          if(!data){
+            return;
+          }
+          //do something
+        }
+      };
     }, function(){
       //TODO: handle error
     });
