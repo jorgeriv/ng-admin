@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 //var ObjectId = Schema.Types.ObjectId;
 
 var PriceTable = new Schema([{
-    type:String, // monthly | weekly
+    type:String, // monthly | weekly | inscription
     classes: Number, // Number of classes per week
     price: Number // Cost
   }]);

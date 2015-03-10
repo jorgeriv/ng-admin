@@ -110,6 +110,22 @@ angular.module('gymApp')
   $scope.editTime = function(time){
 
   }
+  
+  $scope.priceTable = {
+    save: function(type, classes, data){
+        console.log(type, classes, data);
+    },
+    weekly: [],
+    monthly: {
+        one: [],
+        two: [],
+        three: [],
+        four: [],
+        five: [],
+        six: []
+    },
+    inscription: 0
+  }
 
   $rootScope.$on('delete-item', function(e, item, collection){
     var index = $scope[collection].indexOf(item);
